@@ -23,12 +23,11 @@ Things you may want to cover:
 
 * ...
 ## Сущности приложения (предварительные)
-| Сущность         | Атрибуты                            |
-| ---------------- | ----------------------------------- |
-| User             | id, role, username, email, password |
-| Test             | id, user_id, title                  |
-| Question         | id, test_id, text                   |
-| Question_answer  | id, question_id,   correct          |
-| User_answer      | id, question_id, question_answer_id |
-| User_passed_test | id, test_id, user_id                |
+| Сущность    | Атрибуты                            |
+| ----------- | ----------------------------------- |
+| user        | id, role, username, email, password |
+| test        | id, user_id, title                  |
+| question    | id, test_id, text                   |
+| answer      | id, question_id,   correct          |
+| passed_test | id, test_id, user_id                |
 
