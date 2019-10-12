@@ -17,7 +17,7 @@ categories = Category.create!([{ title: 'Ruby Language' },
                                { title: 'Ruby on Rails' }])
 
 tests = Test.create!([{ user_id: users[2].id, category_id: categories[0].id, title: 'Ruby basics', level: 0 },
-                      { user_id: users[3].id, category_id: categories[1].id, level: 1 }])
+                      { user_id: users[3].id, category_id: categories[1].id, title: 'Rails basics',level: 1 }])
 
 texts = ['Ruby is what kind of programming language?',
          'Variables that start with two \'@\' symbols are what kind of variables in Ruby?',
@@ -45,6 +45,6 @@ answers = Answer.create!([{ question_id: questions[0].id, text: 'Strongly typed/
                           { question_id: questions[5].id, text: 'Tables map to classes', correct: true },
                           { question_id: questions[5].id, text: 'Tables map to objects', correct: false }])
 
-passed_tests = PassedTest.create!([{ test_id: ruby_id, user_id: users[0].id },
-                                   { test_id: rails_id, user_id: users[0].id },
-                                   { test_id: ruby_id, user_id: users[1].id }])
+passed_tests = PassedTest.create!([{ test_id: tests[0].id, user_id: users[0].id, progress: 50},
+                                   { test_id: tests[1].id, user_id: users[0].id, progress: 20},
+                                   { test_id: tests[0].id, user_id: users[1].id, progress: 100}])
