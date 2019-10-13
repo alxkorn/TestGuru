@@ -16,8 +16,8 @@ users = User.create!([{ role: 'user', name: 'Alex', email: 'alexk@gmail.com', pa
 categories = Category.create!([{ title: 'Ruby Language' },
                                { title: 'Ruby on Rails' }])
 
-tests = Test.create!([{ user_id: users[2].id, category_id: categories[0].id, title: 'Ruby basics', level: 0 },
-                      { user_id: users[3].id, category_id: categories[1].id, title: 'Rails basics',level: 1 }])
+tests = Test.create!([{ author: users[2], category: categories[0], title: 'Ruby basics', level: 0 },
+                      { author: users[3], category: categories[1], title: 'Rails basics',level: 1 }])
 
 texts = ['Ruby is what kind of programming language?',
          'Variables that start with two \'@\' symbols are what kind of variables in Ruby?',
@@ -25,26 +25,26 @@ texts = ['Ruby is what kind of programming language?',
          'Which of the following methods outputs a text field?',
          'Which of the following associations exists when a single object can be a member of many other objects?',
          'Rails Active Record follows which standard ORM model?']
-questions = Question.create!([{ test_id: tests[0].id, text: texts[0] },
-                              { test_id: tests[0].id, text: texts[1] },
-                              { test_id: tests[0].id, text: texts[2] },
-                              { test_id: tests[1].id, text: texts[3] },
-                              { test_id: tests[1].id, text: texts[4] },
-                              { test_id: tests[1].id, text: texts[5] }])
+questions = Question.create!([{ test: tests[0], text: texts[0] },
+                              { test: tests[0], text: texts[1] },
+                              { test: tests[0], text: texts[2] },
+                              { test: tests[1], text: texts[3] },
+                              { test: tests[1], text: texts[4] },
+                              { test: tests[1], text: texts[5] }])
 
-answers = Answer.create!([{ question_id: questions[0].id, text: 'Strongly typed/Statically typed', correct: true },
-                          { question_id: questions[0].id, text: 'Weakly typed/Statically typed', correct: false },
-                          { question_id: questions[1].id, text: 'Class variable', correct: true },
-                          { question_id: questions[1].id, text: 'Instance variable', correct: false },
-                          { question_id: questions[2].id, text: 'True', correct: true },
-                          { question_id: questions[2].id, text: 'False', correct: false },
-                          { question_id: questions[3].id, text: 'text_field', correct: true },
-                          { question_id: questions[3].id, text: 'form_tag', correct: false },
-                          { question_id: questions[4].id, text: 'one-to-many', correct: true },
-                          { question_id: questions[4].id, text: 'one-to-one', correct: false },
-                          { question_id: questions[5].id, text: 'Tables map to classes', correct: true },
-                          { question_id: questions[5].id, text: 'Tables map to objects', correct: false }])
+answers = Answer.create!([{ question: questions[0], text: 'Strongly typed/Statically typed', correct: true },
+                          { question: questions[0], text: 'Weakly typed/Statically typed', correct: false },
+                          { question: questions[1], text: 'Class variable', correct: true },
+                          { question: questions[1], text: 'Instance variable', correct: false },
+                          { question: questions[2], text: 'True', correct: true },
+                          { question: questions[2], text: 'False', correct: false },
+                          { question: questions[3], text: 'text_field', correct: true },
+                          { question: questions[3], text: 'form_tag', correct: false },
+                          { question: questions[4], text: 'one-to-many', correct: true },
+                          { question: questions[4], text: 'one-to-one', correct: false },
+                          { question: questions[5], text: 'Tables map to classes', correct: true },
+                          { question: questions[5], text: 'Tables map to objects', correct: false }])
 
-passed_tests = PassedTest.create!([{ test_id: tests[0].id, user_id: users[0].id, progress: 50},
-                                   { test_id: tests[1].id, user_id: users[0].id, progress: 20},
-                                   { test_id: tests[0].id, user_id: users[1].id, progress: 100}])
+passed_tests = PassedTest.create!([{ test: tests[0], user: users[0], progress: 50},
+                                   { test: tests[1], user: users[0], progress: 20},
+                                   { test: tests[0], user: users[1], progress: 100}])
