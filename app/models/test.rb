@@ -11,6 +11,8 @@ class Test < ApplicationRecord
   has_many :passed_tests, dependent: :destroy
   has_many :users, through: :passed_tests, dependent: :destroy
 
+  validates :title, presence: true, uniqueness: { scope: :level }
+
   scope :easy, -> { where(level: EASY_LEVEL) }
   scope :medium, -> { where(level: MEDIUM_LEVEL) }
   scope :hard, -> { where(level: HARD_LEVEL) }
