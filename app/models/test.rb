@@ -12,11 +12,16 @@ class Test < ApplicationRecord
   has_many :users, through: :passed_tests, dependent: :destroy
 
   validates :title, presence: true, uniqueness: { scope: :level }
+  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   scope :easy, -> { where(level: EASY_LEVEL) }
   scope :medium, -> { where(level: MEDIUM_LEVEL) }
   scope :hard, -> { where(level: HARD_LEVEL) }
 
-  scope :sorted_titles_with_category, ->(category_title) { joins(:category).where(categories: { title: category_title }).order(title: :desc).pluck(:title) }
+  scope :sorted_by_title_with_category, ->(category_title) { joins(:category).where(categories: { title: category_title }).order(title: :desc) }
   scope :with_level, ->(level) { where(level: level) }
+
+  def self.sorted_titles_with_category
+    sorted_by_title_with_category.pluck(:title)
+  end
 end
