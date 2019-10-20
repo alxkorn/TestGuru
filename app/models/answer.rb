@@ -11,8 +11,8 @@ class Answer < ApplicationRecord
   validate :validate_number_of_answers_for_question
 
   def validate_number_of_answers_for_question
-    unless self.class.where(question: question).count.between?(MIN_AMOUNT_ANSWERS, MAX_AMOUNT_ANSWERS)
-      errors.add(:question, "should have from #{MIN_AMOUNT_ANSWERS} to #{MAX_AMOUNT_ANSWERS} answers")
-    end
+    return if self.class.where(question: question).count.between?(MIN_AMOUNT_ANSWERS, MAX_AMOUNT_ANSWERS)
+
+    errors.add(:question, "should have from #{MIN_AMOUNT_ANSWERS} to #{MAX_AMOUNT_ANSWERS} answers")
   end
 end
