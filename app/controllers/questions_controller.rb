@@ -1,24 +1,17 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[new create index]
+  before_action :find_test, only: %i[new create]
   before_action :find_question, only: %i[show edit destroy update]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index
-    @questions = @test.questions
-  end
-
   def new
-    @question = Question.new
+    @question = @test.questions.new
   end
 
   def show; end
 
-  def edit
-    logger.info(@question.inspect)
-    # @test = @question.test
-  end
+  def edit; end
 
   def update
     if @question.update(question_params)
@@ -39,7 +32,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path(@question.test)
+    redirect_to @question.test
   end
 
   private
