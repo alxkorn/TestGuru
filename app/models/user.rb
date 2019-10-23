@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :created_tests, class_name: 'Test', dependent: :destroy
 
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+
+  scope :authors, -> { where(role: :creator) }
   # validates :role, inclusion: { in: roles.keys }
 
   def passed_tests_with_level(level)
