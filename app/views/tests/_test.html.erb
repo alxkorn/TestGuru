@@ -1,7 +1,8 @@
 <tr>
-  <td><%= link_to test.title, test_path(test)%></td>
-  <td><%= questions_amount(test) %></td>
-  <td><%= test_level(test) %></td>
+  <td> <%= link_to test.title, test_path(test)%></td>
+  <td> <%= questions_amount(test) %></td>
+  <td> <%= test_level(test) %></td>
+  <td> <%= button_to "Start", start_test_path(test)%></td>
   <td> <%= link_to "Edit", edit_test_path(test)%></td>
   <td> <%= link_to "Delete", 
                   test_path(test),
