@@ -45,6 +45,5 @@ answers = Answer.create!([{ question: questions[0], text: 'Strongly typed/Static
                           { question: questions[5], text: 'Tables map to classes', correct: true },
                           { question: questions[5], text: 'Tables map to objects', correct: false }])
 
-passed_tests = PassedTest.create!([{ test: tests[0], user: users[0], progress: 50},
-                                   { test: tests[1], user: users[0], progress: 20},
-                                   { test: tests[0], user: users[1], progress: 100}])
+test_passages = TestPassage.create!([{ test: tests[1], user: users[1]},
+                                     { test: tests[0], user: users[1]}])
