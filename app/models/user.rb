@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  include Auth
-
   enum role: { user: 0, creator: 1 }
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages, dependent: :destroy
   has_many :created_tests, class_name: 'Test', dependent: :destroy
+
+  has_secure_password
 
   scope :authors, -> { where(role: :creator) }
 
