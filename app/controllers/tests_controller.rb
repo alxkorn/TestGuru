@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class TestsController < ApplicationController
-  before_action :authenticate_user!
   before_action :find_test, only: %i[edit update show destroy start]
   before_action :find_user, only: %i[start]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
@@ -56,7 +55,7 @@ class TestsController < ApplicationController
   end
 
   def find_user
-    @user = User.where(role: :user).first
+    @user = @current_user
   end
 
   def test_params

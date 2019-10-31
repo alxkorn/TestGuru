@@ -24,4 +24,9 @@ module ApplicationHelper
   def thinknetica
     link_to 'Учебный проект в онлайн-школе Thinknetica', 'http://thinknetica.com', target: :_blank
   end
+
+  def flash_helper
+    flash_messages = flash.map { |key, value| content_tag :p, value, class: "flash #{key}" }
+    flash_messages.join.html_safe
+  end
 end
