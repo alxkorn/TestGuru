@@ -5,11 +5,12 @@ class User < ApplicationRecord
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages, dependent: :destroy
   has_many :created_tests, class_name: 'Test', dependent: :destroy
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
-  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+
+  has_secure_password
 
   scope :authors, -> { where(role: :creator) }
-  # validates :role, inclusion: { in: roles.keys }
 
   def passed_tests_with_level(level)
     tests.with_level(level)

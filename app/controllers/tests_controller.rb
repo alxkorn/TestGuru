@@ -2,7 +2,7 @@
 
 class TestsController < ApplicationController
   before_action :find_test, only: %i[edit update show destroy start]
-  before_action :find_user, only: %i[start]
+  # before_action :find_user, only: %i[start]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
@@ -40,6 +40,7 @@ class TestsController < ApplicationController
   end
 
   def start
+    @user = current_user
     @user.tests.push(@test)
     redirect_to @user.test_passage(@test)
   end
@@ -54,9 +55,9 @@ class TestsController < ApplicationController
     @test = Test.find(params[:id])
   end
 
-  def find_user
-    @user = User.where(role: :user).first
-  end
+  # def find_user
+  #   @user = @current_user
+  # end
 
   def test_params
     params.require(:test).permit(:title, :level, :category_id, :user_id)
