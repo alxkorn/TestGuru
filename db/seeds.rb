@@ -45,5 +45,5 @@ answers = Answer.create!([{ question: questions[0], text: 'Strongly typed/Static
                           { question: questions[5], text: 'Tables map to classes', correct: true },
                           { question: questions[5], text: 'Tables map to objects', correct: false }])
 
-test_passages = TestPassage.create!([{ test: tests[1], user: users[1]},
-                                     { test: tests[0], user: users[1]}])
+# test_passages = TestPassage.create!([{ test: tests[1], user: users[1]},
+#                                      { test: tests[0], user: users[1]}])

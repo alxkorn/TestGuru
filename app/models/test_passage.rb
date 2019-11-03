@@ -52,6 +52,10 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
+    # byebug
+    # puts('--------------')
+    # puts("Test questions: #{test.questions}")
+    # puts('--------------')
     test.questions.order(:id).where('id > ?', current_question.try(:id) || 0).first
   end
 end
