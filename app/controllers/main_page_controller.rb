@@ -10,6 +10,6 @@ class MainPageController < ApplicationController
   private
 
   def determine_layout
-    current_user.admin? ? 'admin' : 'application'
+    current_user&.admin? ? 'admin' : 'application'
   end
 end
