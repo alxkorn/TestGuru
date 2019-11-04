@@ -2,7 +2,6 @@
 
 class Admin::TestsController < Admin::BaseController
   before_action :find_test, only: %i[edit update show destroy start]
-  # before_action :find_user, only: %i[start]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
@@ -17,6 +16,7 @@ class Admin::TestsController < Admin::BaseController
 
   def create
     @test = Test.new(test_params)
+    @test.author = current_user
     if @test.save
       redirect_to admin_tests_path
     else
@@ -39,11 +39,6 @@ class Admin::TestsController < Admin::BaseController
     redirect_to admin_tests_path
   end
 
-  def start
-    current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
-  end
-
   private
 
   def rescue_with_test_not_found
@@ -54,11 +49,7 @@ class Admin::TestsController < Admin::BaseController
     @test = Test.find(params[:id])
   end
 
-  # def find_user
-  #   @user = @current_user
-  # end
-
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :user_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 end
