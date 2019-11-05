@@ -31,3 +31,11 @@
 
 en:
   hello: "Hello world"
+  test_passages:
+    gist:
+      success: "Gist was successfully created!"
+      failure: "Error occured while saving a gist"
+  devise:
+    failure:
+      user:
+        unauthenticated: "You are not authorized to view this page."

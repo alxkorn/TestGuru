@@ -1,10 +1,20 @@
+# frozen_string_literal: true
+
 class TestPassagesController < ApplicationController
-  before_action :find_test_passage, only: %i[show update result]
+  before_action :find_test_passage, only: %i[show update result gist]
 
-  def show
-  end
+  def show; end
 
-  def result
+  def result; end
+
+  def gist
+    result = GistQuestionService.new(@test_passage.current_question).call
+    flash_options = if result.success?
+                      { notice: t('.success') }
+                    else
+                      { alert: t('.failure') }
+                    end
+    redirect_to @test_passage, flash_options
   end
 
   def update
