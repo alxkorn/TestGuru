@@ -8,10 +8,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-users = User.create!([{ role: 'user', name: 'Alex', email: 'alexk@gmail.com', password: 'nmgB7yu' },
-                      { role: 'user', name: 'Olivia', email: 'oliviap@gmail.com', password: 'vuyieY89' },
-                      { role: 'creator', name: 'Victoria', email: 'victoriark@gmail.com', password: 'vniuawr00i' },
-                      { role: 'creator', name: 'John', email: 'johnb@gmail.com', password: 'fbiTiY8' }])
+users = User.create!([{ first_name: 'Alex', type: 'User', email: 'alexk@gmail.com', password: 'test123' },
+                      { first_name: 'Olivia', type: 'User', email: 'oliviap@gmail.com', password: 'vuyieY89' },
+                      { first_name: 'Victoria', last_name: 'Admin', type: 'Admin', email: 'victoriark@gmail.com', password: 'vniuawr00i' },
+                      { first_name: 'John', last_name: 'Admin', type: 'Admin', email: 'johnb@gmail.com', password: 'test123' }])
 
 categories = Category.create!([{ title: 'Ruby Language' },
                                { title: 'Ruby on Rails' }])
@@ -45,5 +45,5 @@ answers = Answer.create!([{ question: questions[0], text: 'Strongly typed/Static
                           { question: questions[5], text: 'Tables map to classes', correct: true },
                           { question: questions[5], text: 'Tables map to objects', correct: false }])
 
-test_passages = TestPassage.create!([{ test: tests[1], user: users[1]},
-                                     { test: tests[0], user: users[1]}])
+# test_passages = TestPassage.create!([{ test: tests[1], user: users[1]},
+#                                      { test: tests[0], user: users[1]}])
