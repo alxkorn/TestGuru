@@ -7,15 +7,19 @@ class TestPassagesController < ApplicationController
 
   def result; end
 
-  def gist
-    result = GistQuestionService.new(@test_passage.current_question).call
-    flash_options = if result.success?
-                      { notice: t('.success') }
-                    else
-                      { alert: t('.failure') }
-                    end
-    redirect_to @test_passage, flash_options
-  end
+  # def gist
+  #   result = GistQuestionService.new(
+  #     @test_passage.current_question,
+  #     client: Octokit::Client.new(access_token: ENV['ACCESS_TOKEN'])
+  #   ).call
+
+  #   flash_options = if result.success?
+  #                     { notice: t('.success', gist_url: result['html_url']) }
+  #                   else
+  #                     { alert: t('.failure') }
+  #                   end
+  #   redirect_to @test_passage, flash_options
+  # end
 
   def update
     @test_passage.accept!(params[:answer_ids])

@@ -31,10 +31,12 @@
 
 en:
   hello: "Hello world"
-  test_passages:
-    gist:
-      success: "Gist was successfully created!"
-      failure: "Error occured while saving a gist"
+  gist_desc: "A question about %{test_title} from TestGuru"
+  admin:
+    gists:
+      create:
+        success: "Gist was successfully created %{gist_url}!"
+        failure: "Error occured while saving a gist"
   devise:
     failure:
       user:

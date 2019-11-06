@@ -1,8 +1,10 @@
 ru:
-  test_passages:
-    gist:
-      success: "Gist успешно сохранен"
-      failure: "Во время создания gist возникла ошибка"
+  gist_desc: "Вопрос о %{test_title} из TestGuru"
+  admin:
+    gists:
+      create:
+        success: "Gist успешно сохранен! %{gist_url}"
+        failure: "Во время создания gist возникла ошибка"
   devise:
     failure:
       user:
