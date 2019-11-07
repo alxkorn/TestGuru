@@ -35,7 +35,7 @@ en:
   admin:
     gists:
       create:
-        success: "Gist was successfully created %{gist_url}!"
+        success: "%{gist_link} was successfully created!"
         failure: "Error occured while saving a gist"
   devise:
     failure:

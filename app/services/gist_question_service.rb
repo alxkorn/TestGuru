@@ -1,8 +1,8 @@
 class GistQuestionService
-  def initialize(question, client: nil)
+  def initialize(question, client = default_client)
     @question = question
     @test = @question.test
-    @client = client || GitHubClient.new
+    @client = client
   end
 
   def call
@@ -10,6 +10,10 @@ class GistQuestionService
   end
 
   private
+
+  def default_client
+    GitHubClient.new
+  end
 
   def gist_params
     {

@@ -12,19 +12,17 @@ class Admin::GistsController < Admin::BaseController
   def create
     result = GistQuestionService.new(
       @question,
-      client: Octokit::Client.new(access_token: Rails.application.credentials.access_token)
+      Octokit::Client.new(access_token: Rails.application.credentials.access_token)
     ).call
 
-    @gist = current_user.gists.new(question: @question)
-    @gist.url = result[:html_url]
+    @gist = current_user.gists.new(question: @question, url: result[:html_url])
 
     flash_options = if @gist.save
-                      { notice: t('.success', gist_url: @gist.url) }
+                      { notice: t('.success', gist_link: view_context.link_to("Gist", @gist.url, target: :_blank)) }
                     else
                       { alert: t('.failure') }
                     end
-
-    redirect_to test_passage_path(@test_passage), flash: flash_options
+    redirect_to test_passage_path(@test_passage), flash_options
   end
 
   private

@@ -3,7 +3,7 @@ ru:
   admin:
     gists:
       create:
-        success: "Gist успешно сохранен! %{gist_url}"
+        success: "%{gist_link} успешно сохранен! %{gist_url}"
         failure: "Во время создания gist возникла ошибка"
   devise:
     failure:
