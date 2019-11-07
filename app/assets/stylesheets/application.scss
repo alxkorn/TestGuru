@@ -13,8 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap";
+ @import "typography/icons";
+ @import "global";
+
  #footer {
   position: absolute;
+  margin-top: 100px;
   bottom: 0;
   width: 100%;
   height: 6.5rem;            /* Footer height */

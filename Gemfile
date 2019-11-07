@@ -34,6 +34,12 @@ gem "octokit", "~> 4.0"
 
 gem 'dotenv-rails', groups: [:development, :test]
 
+#UI
+gem 'octicons_helper'
+gem 'bootstrap'
+gem 'jquery-rails'
+
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
