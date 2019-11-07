@@ -1,0 +1,11 @@
+ru:
+  gist_desc: "Вопрос о %{test_title} из TestGuru"
+  admin:
+    gists:
+      create:
+        success: "%{gist_link} успешно сохранен! %{gist_url}"
+        failure: "Во время создания gist возникла ошибка"
+  devise:
+    failure:
+      user:
+        unauthenticated: "У вас нет доступа к данному ресурсу."

@@ -31,3 +31,13 @@
 
 en:
   hello: "Hello world"
+  gist_desc: "A question about %{test_title} from TestGuru"
+  admin:
+    gists:
+      create:
+        success: "%{gist_link} was successfully created!"
+        failure: "Error occured while saving a gist"
+  devise:
+    failure:
+      user:
+        unauthenticated: "You are not authorized to view this page."

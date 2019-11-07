@@ -1,8 +1,8 @@
 <h1>Passing the <%= @test_passage.test.title %> Test</h1>
 
-<b>
+<p>
   <%= @test_passage.current_question.text%>
-</b>
+</p>
 
 <%= render 'question_index', test_passage: @test_passage%>
 
@@ -12,6 +12,9 @@
     <%= b.check_box id: "answer_ids_#{b.object.id}" %>
     <%= b.label %>
   </p>
-  <% end %> 
+  <% end %>
+  <%= link_to "Gist question", admin_gists_path(@test_passage, question_id: @test_passage.current_question.id, test_passage_id: @test_passage.id), method: :post%> </p>
   <p><%= form.submit "Next" %></p>
 <% end %>
+
+<p> <%# render 'admin/gists/form', question: @test_passage.current_question %>
