@@ -33,6 +33,9 @@ en:
   hello: "Hello world"
   gist_desc: "A question about %{test_title} from TestGuru"
   admin:
+    tests:
+      form_inline:
+        submit: "OK"
     gists:
       create:
         success: "%{gist_link} was successfully created!"
