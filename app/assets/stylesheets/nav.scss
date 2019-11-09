@@ -1,13 +1,12 @@
-.nav.user{
+.mynav.user{
   text-align: right;
 }
 
-.nav.user-email{
+.mynav.user-email{
   border-bottom: 1px solid #3c85e0;
 }
 
-.nav.nav-admin{
-  height: 35px;
+.mynav.nav-admin{
   padding: 15px;
   line-height: 35px;
   color: #ffffff;
@@ -15,25 +14,25 @@
   margin-bottom: 40px;
 }
 
-.nav-admin.title {
+.mynav-admin.title {
   font-size: 140%;
   font-weight: bold;
 }
 
-.nav-admin.user{
+.mynav-admin.user{
   float: right;
 }
 
-.nav-admin.user-email {
+.mynav-admin.user-email {
   text-decoration: underline;
 }
 
-.nav.nav-admin
+.mynav.nav-admin
 a {
   color: #ffffff;
 }
 
-.nav.sign{
+.mynav.sign{
   text-align: center;
 }
 

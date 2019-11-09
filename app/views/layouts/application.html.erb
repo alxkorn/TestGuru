@@ -10,10 +10,14 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <%= render 'user/nav' %>
-    <%= flash_helper %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+    <div class="page-container">
+      <%= render 'layouts/header' %>
+      <%= render 'user/nav' %>
+      <%= flash_helper %>
+      <div class="content-wrap">
+        <%= yield %>
+      <div>
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>
