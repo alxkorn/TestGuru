@@ -1,0 +1,10 @@
+<div class="progress">
+  <%= content_tag :div,
+                  '',
+                  class: 'progress-bar',
+                  role: 'progressbar',
+                  # style: "width: #{@test_passage.progress}%".html_safe,
+                  data: { progress: @test_passage.progress,
+                          completed: @test_passage.completed?,
+                          passed: @test_passage.passed? } %>
+</div><br>

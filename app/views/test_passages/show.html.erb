@@ -4,6 +4,7 @@
   <%= @test_passage.current_question.text%>
 </p>
 
+<%= render 'progress_bar' %>
 <%= render 'question_index', test_passage: @test_passage%>
 
 <%= form_with url: test_passage_path(@test_passage), local: true, method: :put  do |form|%>
