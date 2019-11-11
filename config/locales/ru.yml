@@ -1,6 +1,9 @@
 ru:
   gist_desc: "Вопрос о %{test_title} из TestGuru"
   admin:
+    tests:
+        form_inline:
+          submit: "OK"
     gists:
       create:
         success: "%{gist_link} успешно сохранен! %{gist_url}"

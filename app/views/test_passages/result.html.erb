@@ -1,5 +1,6 @@
 <h1>The <%= @test_passage.test.title %> Test was Completed!</h1>
 <strong> <%= passage_result(@test_passage)%> </strong>
+<%= render 'progress_bar' %>
 <p> 
   You answered
     <span class=<%= passage_status(@test_passage)%>> 

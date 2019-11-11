@@ -3,6 +3,7 @@
 class TestPassage < ApplicationRecord
   PERCENTAGE_SACLE = 100
   PASSING_SCORE = 85
+  MAX_PROGRESS = 100
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
@@ -24,6 +25,12 @@ class TestPassage < ApplicationRecord
 
   def total_questions
     test.questions.count
+  end
+
+  def progress
+    return MAX_PROGRESS if completed?
+
+    (PERCENTAGE_SACLE * (current_question_index - 1) / total_questions).to_i
   end
 
   def accept!(answer_ids)
