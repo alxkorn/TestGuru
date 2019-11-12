@@ -47,3 +47,6 @@ answers = Answer.create!([{ question: questions[0], text: 'Strongly typed/Static
 
 # test_passages = TestPassage.create!([{ test: tests[1], user: users[1]},
 #                                      { test: tests[0], user: users[1]}])
+
+badges = Badge.create!([{title: 'Test badge #1', icon_path: 'badge1.png'},
+                        {title: 'Test badge #2', icon_path: 'badge2.png'}])

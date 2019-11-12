@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages, dependent: :destroy
   has_many :created_tests, class_name: 'Test', dependent: :destroy
   has_many :gists, dependent: :nullify
+  has_many :badges, through: :users_badges
   has_many :users_badges, dependent: :destroy
 
   devise :database_authenticatable,

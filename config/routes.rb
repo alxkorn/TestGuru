@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :badges
+    resources :badges, except: %i[index]
     resources :gists, only: %i[index create]
     resources :tests do
       patch :update_inline, on: :member
