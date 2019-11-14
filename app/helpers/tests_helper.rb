@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module TestsHelper
-  TEST_LEVELS = { 0 => :easy, 1 => :elementary, 2 => :advanced, 3 => :hard }.freeze
+  TEST_LEVELS = { 0 => :elementary, 1 => :easy, 2 => :advanced, 3 => :hard }.freeze
 
   def questions_amount(test)
     test.questions.count
