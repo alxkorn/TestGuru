@@ -23,9 +23,14 @@ Rails.application.routes.draw do
 
   resources :badges, only: %i[index] do
   end
+  resources :user_badges, only: %i[index]
 
   namespace :admin do
-    resources :badges, except: %i[index]
+    resources :badges do
+      get :choose_type, on: :collection
+    end
+
+    # resources :user_badges, only: %i[index]
     resources :gists, only: %i[index create]
     resources :tests do
       patch :update_inline, on: :member
