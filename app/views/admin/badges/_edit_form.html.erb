@@ -1,0 +1,12 @@
+<%= render 'shared/error', resource: @badge %>
+<%= form_with url: admin_badge_path, model: @badge, scope: :badge, method: :patch, local: true do |form| %>
+  <p>  
+    <%= form.label :title %>
+    <%= form.text_field :title%>
+  </p>
+  <p>  
+    <%= form.label :icon %>
+    <%= form.select :icon_path, Badge.icons, prompt: true%>
+  </p>
+  <%= form.submit %>
+<% end %>

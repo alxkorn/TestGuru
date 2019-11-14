@@ -1,0 +1,12 @@
+<h1>Available Badges</h1>
+<table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Icon</th>
+    <th colspan="3">Action</th>
+  </tr>
+  <%= render partial: 'badge', collection: @badges %>
+</table>
+<%= link_to "Create Badge", choose_type_admin_badges_path %><br>
+<%= link_to "Back to Tests",  admin_tests_path %>
