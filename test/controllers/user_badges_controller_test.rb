@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UsersBadgesControllerTest < ActionDispatch::IntegrationTest
+class UserBadgesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

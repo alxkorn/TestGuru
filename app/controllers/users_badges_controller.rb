@@ -1,2 +1,0 @@
-class UsersBadgesController < ApplicationController
-end
