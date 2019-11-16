@@ -7,6 +7,7 @@ class TestPassagesController < ApplicationController
 
   def result
     @rewarded_badges = BadgeRewardService.new(@test_passage).call
+    current_user.badges << @rewarded_badges
   end
 
   def update
