@@ -7,6 +7,7 @@ class LevelBadge < Badge
   end
 
   def check_condition(test_passage)
+    return false unless test_passage.passed
     return false unless test_passage.test.level == level
 
     num_tests_of_level = Test.where(level: level).count

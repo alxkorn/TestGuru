@@ -7,6 +7,7 @@ class CategoryBadge < Badge
   end
 
   def check_condition(test_passage)
+    return false unless test_passage.passed
     return false unless test_passage.test.category_id == category_id
 
     num_tests_of_category = Test.joins(:category).where(category_id: category_id).count
