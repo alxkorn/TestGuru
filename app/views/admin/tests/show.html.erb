@@ -1,5 +1,6 @@
 <h1><%= @test.title %> Test </h1>
 <p><strong>Level:</strong> <%= test_level(@test)%></p>
+<p><strong>Time Limit: </strong> <%= time_limit_helper(@test)%> </p>
 <h2>Questions</h2>
 <ol>
   <%= render @test.questions %>

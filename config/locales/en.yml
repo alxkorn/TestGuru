@@ -30,6 +30,7 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  min: "min."
   hello: "Hello world"
   gist_desc: "A question about %{test_title} from TestGuru"
   admin:

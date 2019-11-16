@@ -24,4 +24,10 @@ class Test < ApplicationRecord
   def self.sorted_titles_with_category
     sorted_by_title_with_category.pluck(:title)
   end
+
+  # def time_limit_seconds
+  #   return null if time_limit.null?
+
+  #   time_limit.minutes.seconds
+  # end
 end

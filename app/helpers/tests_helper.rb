@@ -18,4 +18,8 @@ module TestsHelper
       "Edit #{test.title} Test"
     end
   end
+
+  def time_limit_helper(test)
+    [test.time_limit, I18n.t(:min)].join(' ')
+  end
 end
