@@ -16,6 +16,10 @@ class Badge < ApplicationRecord
     Dir.entries('app/assets/images/badges/').reject { |f| File.directory?(f) }
   end
 
+  def was_rewarded?(user)
+    UserBadge.where(user: user, badge: self).count.positive?
+  end
+
   private
 
   def localization_scope
