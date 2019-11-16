@@ -6,15 +6,6 @@ class BadgeRewardService
   end
 
   def call
-    rewarded_badges = []
-    Badge.all.each do |badge|
-      rewarded_badges << badge if badge.check_condition(@test_passage) #self.send(badge.rule.to_sym, badge.rule_value)
-    end
-    rewarded_badges
+    Badge.all.select { |badge| badge.check_condition(@test_passage)}
   end
-
-  # def reward(badge)
-  #   @user.badges.push(badge)
-  #   badge
-  # end
 end
