@@ -5,7 +5,10 @@ class TestPassagesController < ApplicationController
 
   def show; end
 
-  def result; end
+  def result
+    @rewarded_badges = BadgeRewardService.new(@test_passage).call
+    current_user.badges << @rewarded_badges
+  end
 
   def update
     @test_passage.accept!(params[:answer_ids])

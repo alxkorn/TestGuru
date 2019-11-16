@@ -1,0 +1,8 @@
+<h1>Choose type of Badge</h1>
+<%= form_with url: new_admin_badge_path, method: :get, local: true do |form| %>
+  <p>
+    <%= form.label :type %>
+    <%= form.select :type, types_collection %>
+  </p>
+  <%= form.submit "Next" %>
+<% end %>

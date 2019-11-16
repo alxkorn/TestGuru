@@ -38,8 +38,6 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'octicons_helper'
 gem 'bootstrap'
 gem 'jquery-rails'
-
-
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

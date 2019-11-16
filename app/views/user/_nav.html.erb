@@ -1,5 +1,9 @@
 <% if user_signed_in? %>
-  <div class = "mynav user">Welcome, <b class="mynav user-email"><%= current_user.email %></b> Guru |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  <div class = "mynav user">
+    <%= link_to "Badges", badges_path %> |
+    <%= link_to "My badges", user_badges_path %> |
+    Welcome, <b class="mynav user-email">
+    <%= current_user.email %></b> Guru |
+    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
   </div>
 <% end %>

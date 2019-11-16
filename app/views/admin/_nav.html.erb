@@ -3,6 +3,7 @@
     <span class="mynav-admin title">TestGuru Admin Panel</span>
 
     <div class = "mynav-admin user">
+      <%= link_to 'Badges', admin_badges_path%> |
       <%= link_to 'Gists', admin_gists_path %> |
       Welcome, <b class="mynav-admin user-email"><%= current_user.email %></b> Guru |
       <%= link_to "Logout", destroy_user_session_path, method: :delete %>

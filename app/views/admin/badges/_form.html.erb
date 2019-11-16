@@ -1,0 +1,26 @@
+
+<%= render 'shared/error', resource: @badge %>
+<%= form_with url: admin_badges_path, model: @badge, local: true do |form| %>
+  <p>  
+    <%= form.label :title %>
+    <%= form.text_field :title%>
+  </p>
+  <p>  
+    <%= form.label :icon %>
+    <%= form.select :icon_path, Badge.icons, prompt: true%>
+  </p>
+  <p>
+    <% case @badge_type %>
+    <% when  'CategoryBadge' %>
+     <%= render 'category_rule_info', form: form %>
+    <% when  'LevelBadge' %>
+     <%= render 'level_rule_info', form: form %>
+    <% when  'FirstTryBadge' %>
+     <%= render 'first_try_rule_info', form: form%>
+    <% end %>
+  </p>
+
+  <%= form.hidden_field :type, value: @badge_type %>
+
+  <%= form.submit %>
+<% end %>

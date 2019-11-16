@@ -3,10 +3,12 @@
 <%= render 'progress_bar' %>
 <p> 
   You answered
-    <span class=<%= passage_status(@test_passage)%>> 
+    <span class= <%= passage_status(@test_passage)%>> 
       <%= @test_passage.correct_percentage%> %
     </span>
      questions correctly.
 </p>
+
+<%= render 'reward', rewarded_badges: @rewarded_badges%>
 
 <%= link_to 'Back to Tests', tests_path%>

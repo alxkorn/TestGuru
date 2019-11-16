@@ -1,0 +1,6 @@
+<% unless rewarded_badges.nil? || rewarded_badges.empty? %>
+  <h2>Received Badges</h2>
+  <ul class="list-group">
+    <%= render partial: 'badges/badge', collection: rewarded_badges%>
+  </ul>
+<% end %>

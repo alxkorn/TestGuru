@@ -35,6 +35,7 @@ class TestPassage < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
+    self.passed = passed?
     save!
   end
 
@@ -63,6 +64,7 @@ class TestPassage < ApplicationRecord
     # puts('--------------')
     # puts("Test questions: #{test.questions}")
     # puts('--------------')
+    # byebug
     test.questions.order(:id).where('id > ?', current_question.try(:id) || 0).first
   end
 end
