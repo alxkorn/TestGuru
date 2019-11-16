@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 class FirstTryBadge < Badge
-  def self.rule_desc
-    'Completed Test on first try'
-  end
 
   def test_id
     rule_value
@@ -16,6 +13,6 @@ class FirstTryBadge < Badge
   end
 
   def description
-    "Completed Test #{Test.find(test_id).title} on first try"
+    I18n.t(:desc, scope: localization_scope, test: Test.find(test_id).title)
   end
 end

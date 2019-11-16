@@ -44,3 +44,12 @@ en:
     failure:
       user:
         unauthenticated: "You are not authorized to view this page."
+  category_badge:
+    rule_desc: "Completed all Tests with Category"
+    desc: "Completed all Tests with Category \"%{category}\" "
+  level_badge:
+    rule_desc: "Completed all Tests with Level"
+    desc: "Completed all Tests with Level %{level}"
+  first_try_badge:
+    rule_desc: "Completed Test on first try"
+    desc: "Completed Test \"%{test}\" on first try"
