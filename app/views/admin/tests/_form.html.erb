@@ -14,8 +14,8 @@
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </p>
   <p>
-    <%# form.label :author_id %>
-    <%# form.hidden_field :user_id, value:  @test.author&.id || current_user.id %>
+    <%= form.label :time_limit %>
+    <%= form.number_field :time_limit %> <%= I18n.t(:min) %>
   </p>
   <%= form.submit %>
 <% end %>

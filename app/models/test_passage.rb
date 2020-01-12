@@ -4,6 +4,7 @@ class TestPassage < ApplicationRecord
   PERCENTAGE_SACLE = 100
   PASSING_SCORE = 85
   MAX_PROGRESS = 100
+  TIME_MARGIN = 0
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
@@ -14,12 +15,11 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
-  def passed?
+  def passed_by_score?
     correct_percentage >= PASSING_SCORE
   end
 
   def current_question_index
-    # test.questions.index(current_question) + 1
     total_questions - test.questions.where('id > ?', current_question.try(:id)).count
   end
 
@@ -33,15 +33,37 @@ class TestPassage < ApplicationRecord
     (PERCENTAGE_SACLE * (current_question_index - 1) / total_questions).to_i
   end
 
+  def time_left
+    (created_at + test.time_limit.minutes - Time.now).to_i
+  end
+
+  def time_limit_exceeded?
+    return false if test.time_limit.nil?
+
+    time_left <= TIME_MARGIN
+  end
+
   def accept!(answer_ids)
-    self.correct_questions += 1 if correct_answer?(answer_ids)
-    self.passed = passed?
+    if time_limit_exceeded?
+      self.passed = false
+      self.current_question = test.questions.order(:id).last
+    else
+      self.correct_questions += 1 if correct_answer?(answer_ids)
+      self.passed = passed_by_score?
+    end
     save!
   end
 
   def correct_percentage
     PERCENTAGE_SACLE * correct_questions / test.questions.count
   end
+
+  # def terminate
+  #   logger.info('Entered Termination!')
+  #   self.current_question = test.questions.order(:id).last
+  #   self.passed = false
+  #   save!
+  # end
 
   private
 
@@ -60,11 +82,6 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
-    # byebug
-    # puts('--------------')
-    # puts("Test questions: #{test.questions}")
-    # puts('--------------')
-    # byebug
     test.questions.order(:id).where('id > ?', current_question.try(:id) || 0).first
   end
 end

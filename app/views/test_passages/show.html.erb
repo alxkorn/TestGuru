@@ -4,6 +4,10 @@
   <%= @test_passage.current_question.text%>
 </p>
 
+<% if @test_passage.test.time_limit %>
+  <%= render 'shared/timer', time_limit: @test_passage.time_left %>
+<% end %>
+
 <%= render 'progress_bar' %>
 <%= render 'question_index', test_passage: @test_passage%>
 
